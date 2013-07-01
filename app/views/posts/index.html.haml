@@ -1,1 +1,13 @@
-%h1 Holla atcha boy
+%h1= "#{@name}'s Blog: Holla Atcha Boy"
+<br>
+
+%h3 SUP!
+%p This is a paragraph.
+
+%h3 I SAID SUP!
+%p Let's talk s'more, ya?
+
+- @posts.each do |t|
+  %h2= t.title
+  %p= t.body
+
