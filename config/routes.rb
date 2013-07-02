@@ -1,9 +1,12 @@
 EricBlog::Application.routes.draw do
   
   get '/posts' => 'posts#index'
-  get '/post/:id' => 'posts#show', as: 'post'
   get '/posts/new' => 'posts#new'
+  get '/posts/:id' => 'posts#show', as: 'post'
+  get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
+  put '/posts/:id' => 'posts#update', as: 'update_post'
   post '/posts' => 'posts#create'
+  delete 'posts/:id' => 'posts#delete'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
