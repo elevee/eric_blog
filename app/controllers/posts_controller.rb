@@ -2,6 +2,11 @@ class PostsController < ApplicationController
 	def index
 		@name = "Eric Levine"
 		@posts = Post.all
+		@posts = @posts.sort_by &:title
+
+		# @posts = Post.scoped
+		# @posts = @posts.where(:title ==)
+		# @posts = @posts.order(:title)
 	end
 
 	def show
@@ -47,10 +52,11 @@ class PostsController < ApplicationController
 
 		@post.update_attributes(params[:post])
 
+
 		if @post.save
 			redirect_to @post
 		else
-			render action: 'edit_post'
+			render 'edit'
 		end
 	end
 

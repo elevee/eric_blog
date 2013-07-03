@@ -1,6 +1,11 @@
 %h2= @post.title
+%h5= "by #{@post.author}"
 
 %p= @post.body
 
 =link_to "edit", edit_post_path(params[:id])
 =link_to "delete", @post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+=link_to "home", root_url
